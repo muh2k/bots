@@ -38,8 +38,9 @@ client.on('message', message =>{
         client.commands.get('kill').execute(message, args);
     } else if(command === 'ban'){
         client.commands.get('ban').execute(message, args);
-    }
-});
+    } else if(command === 'STAFF'){
+        client.commands.get('STAFF').execute(message, args);
+}});
  
 
 client.login('NzU2OTM2MzIzOTMxMDQ2MDAx.X2ZF4g.wdPGZSP3NGFiqD3CRdfulH1REKQ');
