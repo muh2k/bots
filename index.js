@@ -36,10 +36,8 @@ client.on('message', message =>{
         client.commands.get('wipe').execute(message, args);
     } else if(command === 'kill'){
         client.commands.get('kill').execute(message, args);
-    } else if(command === 'ban'){
-        client.commands.get('ban').execute(message, args);
-    } else if(command === 'STAFF'){
-        client.commands.get('STAFF').execute(message, args);
+    } else if(command === 'staff'){
+        client.commands.get('staff').execute(message, args);
 }});
  
 
