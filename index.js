@@ -39,8 +39,8 @@ client.on('message', message =>{
         client.commands.get('kill').execute(message, args);
     } else if(command === 'staff'){
         client.commands.get('staff').execute(message, args);
-    
-};
+    }
+
  
 
 client.login('NzU2OTM2MzIzOTMxMDQ2MDAx.X2ZF4g.wdPGZSP3NGFiqD3CRdfulH1REKQ')});
