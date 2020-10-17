@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
  
-Const = new Discord.Messageembed()
+Const .Embed= new Discord.Messageembed()
 const prefix = '-';
 const fs = require('fs');
 const http = require('http');
