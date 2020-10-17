@@ -10,7 +10,7 @@
   "description": "moderation bot",
   "dependencies": {
     "discord.js": "^12.3.1",
+    "dotenv": "^8.2.0",
     "node": "^14.11.0"
   }
 }
-
