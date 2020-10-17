@@ -5,7 +5,7 @@ const prefix = '-';
 const fs = require('fs');
 const http = require('http');
 const port = process.env.PORT || 3000;
-https.createServer().listen(port);
+createServer().listen(port);
 client.commands = new Discord.Collection();
  
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
