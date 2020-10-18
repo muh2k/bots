@@ -35,11 +35,10 @@ client.on('message', message =>{
         client.commands.get('mute').execute(message, args);
     } else if(command === 'wipe'){
         client.commands.get('wipe').execute(message, args);
-    } else if(command === 'kill'){
-        client.commands.get('kill').execute(message, args);
     } else if(command === 'staff'){
         client.commands.get('staff').execute(message, args);
     }
+    
 
  
 
