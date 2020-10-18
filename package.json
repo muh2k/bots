@@ -9,9 +9,12 @@
   "license": "ISC",
   "description": "moderation bot",
   "dependencies": {
+    "-": "0.0.1",
     "discord.js": "^12.3.1",
     "dotenv": "^8.2.0",
     "http": "0.0.1-security",
-    "node": "^14.11.0"
+    "ms": "^2.1.2",
+    "node": "^14.11.0",
+    "save": "^2.4.0"
   }
 }
