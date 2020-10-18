@@ -16,8 +16,9 @@ for(const file of commandFiles){
     client.commands.set(command.name, command);
 }
  
-client.once('ready', () => {
-    console.log('one grid mod!');
+client.once('ready', () => { 
+    console.log('the vest vot is online');
+    client.user.setActivity('over the One grid community', { type: 'WATCHING'}).catch(console.error);
 });
  
 client.on('message', message =>{
