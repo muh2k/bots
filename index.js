@@ -16,11 +16,13 @@ for(const file of commandFiles){
     client.commands.set(command.name, command);
 }
  
+client.once('ready', () => { 
+    console.log('the vest vot is online');
+    client.user.setActivity('over the One grid community', { type: 'WATCHING'}).catch(console.error);
+});
+ 
+
 
  
-client.on('message', message =>{
-    if(!message.content.startsWith(prefix) || message.author.bot) return;
 
- 
-
-client.login('NzU2OTM2MzIzOTMxMDQ2MDAx.X2ZF4g.wdPGZSP3NGFiqD3CRdfulH1REKQ')});
+client.login('NzU2OTM2MzIzOTMxMDQ2MDAx.X2ZF4g.wdPGZSP3NGFiqD3CRdfulH1REKQ');
