@@ -23,9 +23,6 @@ client.once('ready', () => {
  
 
  
-    const args = message.content.slice(prefix.length).split(/ +/);
-    const command = args.shift().toLowerCase();
- 
     if(command === 'ping'){
         client.commands.get('ping').execute(message, args);
     } else if(command === 'help'){
