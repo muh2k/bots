@@ -45,11 +45,11 @@ switch (args[0]) {
         var person  = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[1]));
         if(!person) return  message.reply("I CANT FIND THE USER " + person)
 
-        let mainrole = message.guild.roles.cache.find(role => role.name === "NORMIE");
-        let role = message.guild.roles.find(role => role.name === "Muted");
+        let mainrole = message.guild.roles.find(role => role.name === "Newbie");
+        let role = message.guild.roles.find(role => role.name === "mute");
        
 
-        if(!role) return message.reply("Couldn't find the Muted role.")
+        if(!role) return message.reply("Couldn't find the mute role.")
 
 
         let time = args[2];
@@ -57,8 +57,9 @@ switch (args[0]) {
             return message.reply("You didnt specify a time!");
         }
 
-        person.addRole(mainrole.id)
-        person.removeRole(role.id);
+        person.removeRole(mainrole.id)
+        person.addRole(role.id);
+
 
         message.channel.send(`@${person.user.tag} has now been muted for ${ms(ms(time))}`)
 
