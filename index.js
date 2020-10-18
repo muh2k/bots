@@ -21,8 +21,7 @@ client.once('ready', () => {
     client.user.setActivity('over the One grid community', { type: 'WATCHING'}).catch(console.error);
 });
  
-client.on('message', message =>{
-    if(!message.content.startsWith(prefix) || message.author.bot) return;
+
  
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
@@ -40,4 +39,4 @@ client.on('message', message =>{
     }
  
 
-client.login('NzU2OTM2MzIzOTMxMDQ2MDAx.X2ZF4g.wdPGZSP3NGFiqD3CRdfulH1REKQ')});
+client.login('NzU2OTM2MzIzOTMxMDQ2MDAx.X2ZF4g.wdPGZSP3NGFiqD3CRdfulH1REKQ');
