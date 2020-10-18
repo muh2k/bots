@@ -17,7 +17,9 @@ for(const file of commandFiles){
 
 client.once('ready', () => {
     console.log('one grid mod!');
+    client.user.setActivity('over the One grid community', { type: 'WATCHING'}).catch(console.error);
 });
+
 
 client.on('message', message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
