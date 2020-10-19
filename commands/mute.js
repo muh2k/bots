@@ -2,7 +2,7 @@ module.exports = {
     name: 'mute',
     description: "this mutes a user",
     execute(message, args){
-
+        message.channel.send('error.MP4 muh is shit at coding and is trying to fix this')
         
     
 
@@ -12,8 +12,8 @@ switch (args[0]) {
         var person  = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[1]));
         if(!person) return  message.reply("I CANT FIND THE USER " + person)
 
-        let mainrole = message.guild.roles.find(role => role.name === "Newbie");
-        let role = message.guild.roles.find(role => role.name === "mute");
+        let mainrole = message.guild.roles.find(role => role.name === "NORMIE");
+        let role = message.guild.roles.find(role => role.name === "Muted");
        
 
         if(!role) return message.reply("Couldn't find the mute role.")
