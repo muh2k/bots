@@ -16,7 +16,7 @@ switch (args[0]) {
         let role = message.guild.roles.find(role => role.name === "Muted");
        
 
-        if(!role) return message.reply("Couldn't find the mute role.")
+        if(-role) return message.reply("Couldn't find the mute role.")
 
 
         let time = args[2];
