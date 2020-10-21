@@ -26,7 +26,7 @@ client.once('ready', () => {
 client.on('message', message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).split(/ +/);
+    const args = message.content.slice(prefix.length).split(' ');
     const command = args.shift().toLowerCase();
 
     if(command === 'ping'){
@@ -42,8 +42,23 @@ client.on('message', message =>{
     } else if(command === 'mute'){
         client.commands.get('mute').execute(message, args);
     } 
+    switch(args[0]){
+        case 'embed':
+            const embed = new MessageEmbed 
+            .setFitle('User Information')
+            .addField('Player name', message.author.username)
+            .addField('Version', '0.1')
+            .setColor(0x7D3C98)
+            message.channel.send(embed);
+            break;
+            
+    } 
     
-    }
+   
+    
+
+ 
+   } 
         
 
 );
