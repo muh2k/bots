@@ -3,8 +3,6 @@ module.exports = {
     description: "embed",
     execute(message, args){
 
-switch(args[0]){
-    case 'embed':
         const embed = new MessageEmbed 
         .setTitle('User Information')
         .addField('Player name', message.author.username)
@@ -12,4 +10,4 @@ switch(args[0]){
         .setColor(0x7D3C98)
         message.channel.send(embed);
         break;
-          }}}
+          }}
