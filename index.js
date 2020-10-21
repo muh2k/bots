@@ -41,28 +41,19 @@ client.on('message', message =>{
         client.commands.get('staff').execute(message, args);
     } else if(command === 'mute'){
         client.commands.get('mute').execute(message, args);
-    } 
-    switch(args[0]){
-        case 'embed':
-            const embed = new MessageEmbed 
-            .setTitle('User Information')
-            .addField('Player name', message.author.username)
-            .addField('Version', '0.1')
-            .setColor(0x7D3C98)
-            message.channel.send(embed);
-            break;
-            
+    } else if(command === 'embed'){
+        client.commands.get('embed').execute(message, args);
     } 
     
    
     
 
  
-   } 
+   
         
 
-);
+;
 
 
-client.login('NzU2OTM2MzIzOTMxMDQ2MDAx.X2ZF4g.wdPGZSP3NGFiqD3CRdfulH1REKQ');
+client.login('NzU2OTM2MzIzOTMxMDQ2MDAx.X2ZF4g.wdPGZSP3NGFiqD3CRdfulH1REKQ')});
 
