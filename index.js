@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 const prefix = '-';
 
-const ms = require("ms");
+
 
 const fs = require('fs');
 
