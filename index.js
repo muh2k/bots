@@ -38,11 +38,16 @@ const command = args.shift().toLowerCase();
     } else if(command === 'mute'){
         client.commands.get('mute').execute(message, args);
     } else if(command === 'embed'){
-        client.commands.get('embed').execute(MessageEmbed, args);
+        client.commands.get('embed').execute(message, args);
     } 
-
-
-
+    message.channel.send(embed);
+        switch(args[0]){
+            case 'embed':
+                const embed = new Discord.MessageEmbed()
+                .addField('Player Name:', message.author.username);
+                message.channel.send(embed);
+                break;
+        }
  
 })
 
