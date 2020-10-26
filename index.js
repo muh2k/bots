@@ -9,7 +9,7 @@ client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for(const file of commandFiles){
-    const command = require('./commands/$,{file}');
+    const command = require(`./commands/$,{file}`);
 
     client.commands.set(command.name, command);
 }
@@ -37,8 +37,8 @@ client.on('message', message =>{
         client.commands.get('wipe').execute(message, args);
     } else if(command === 'kill'){
         client.commands.get('kill').execute(message, args);
-    } else if(command === 'ban'){
-        client.commands.get('ban').execute(message, args);
+    } else if(command === 'staff'){
+        client.commands.get('staff').execute(message, args);
     }
 });
 
