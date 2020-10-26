@@ -1,16 +1,17 @@
-module.exports = {
-    name: 'help',
-    description: "this commands tells you the commands of the bot",
-    execute(MessageEmbed, args){
-        message.channel.send(embed);
-        switch(args[0]){
-            case 'embed':
-                const embed = new Discord.MessageEmbed()
-                .addField('Player Name:', message.author.username);
-                message.channel.send(embed);
-                break;
-        }
-    
-    
-    
-    }}
+const Discord = require('discord.js');
+const { description } = require('./help');
+
+module.exports.run = async (bot, message, args) => {
+const embed = new Discord.MessageEmbed()
+      .setTitle('this is a test')
+
+      message.channel.send(embed);
+}
+
+module.exports.config = {
+    name: "embed",
+    description: "embed command",
+    usage: "-embed",
+    accessableby: "everyone",
+    aliases: []
+}
