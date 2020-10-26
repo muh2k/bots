@@ -1,14 +1,12 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-
+ 
 const prefix = '-';
-
-const ms = require('ms')
-const port = process.env.PORT  ||  3000;
+ 
 const fs = require('fs');
-
+ 
 client.commands = new Discord.Collection();
-
+ 
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for(const file of commandFiles){
     const command = require(`./commands/${file}`);
@@ -17,7 +15,7 @@ for(const file of commandFiles){
 }
 
 client.once('ready', () => {
-    console.log('one grid mod!');
+    console.log('One grid online');
     client.user.setActivity('over the One grid community', { type: 'WATCHING'}).catch(console.error);
 });
 
