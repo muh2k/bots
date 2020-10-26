@@ -10,8 +10,6 @@ client.commands = new Discord.Collection();
 
 
  
- 
-    client.commands.set(command.name, command);
 
 
 client.once('ready', () => {
