@@ -37,7 +37,10 @@ const command = args.shift().toLowerCase();
         client.commands.get('staff').execute(message, args);
     } else if(command === 'mute'){
         client.commands.get('mute').execute(message, args);
+    } else if(command === 'embed'){
+        client.commands.get('embed').execute(message, args);
     } 
+
 
 
  
