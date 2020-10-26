@@ -1,7 +1,7 @@
 module.exports = {
     name: 'help',
     description: "this commands tells you the commands of the bot",
-    execute(MessageEmbed, args){
+    execute(Message, args){
         message.channel.send(embed);
         switch(args[0]){
             case 'embed':
