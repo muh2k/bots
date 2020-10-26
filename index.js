@@ -3,8 +3,8 @@ const client = new Discord.Client();
 
 const prefix = '-';
 
-const ms = require(ms)
-
+const ms = require('ms')
+const port = process.env.PORT  ||  3000;
 const fs = require('fs');
 
 client.commands = new Discord.Collection();
