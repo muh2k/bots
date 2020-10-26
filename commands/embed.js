@@ -7,7 +7,8 @@ module.exports = {
             case 'embed':
                 const embed = new Discord.MessageEmbed()
                 .addField('Player Name:', message.author.username);
-
+                message.channel.send(embed);
+                break;
         }
     
     
