@@ -44,4 +44,4 @@ const command = args.shift().toLowerCase();
  
 })
 
-    client.login('NzU2OTM2MzIzOTMxMDQ2MDAx.X2ZF4g.X7-KlO9aCLyNTeU05eMcIJg6wGs');
+    client.login('your token here');
