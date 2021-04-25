@@ -9,7 +9,7 @@ module.exports.run = async(bot, message, args) => {
         .setTitle(`${mentions.username}`)
         .setImage(mentions.avatarURL());
 
-    message.channel.send(embed);
+    await message.channel.send(embed);
 }
 
 module.exports.help = {

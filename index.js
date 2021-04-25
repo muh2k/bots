@@ -15,19 +15,19 @@ const folders = ["info", "fun"];
 bot.commands = new Discord.Collection();
 
 /* I did not made a automation function for this */
-folders.forEach(async (d) => {
-    fs.readdir(`./commands/${d}/`, async (err, files) => {
+folders.forEach((d) => {
+    fs.readdir(`./commands/${d}/`, (err, files) => {
         if (err) console.log(`${error} ${err.message}`);
         console.log(`${info} Loaded ${files.length} commands (${d})`);
         
-        files.forEach(async (f) => {
+        files.forEach((f) => {
             if (!f.endsWith(".js")) return;
 
             let props = require(`./commands/${d}/${f}`);
             bot.commands.set(props.help.name, props);
 
             if (props.help.aliases) {
-                props.help.aliases.forEach(async (alias) => {
+                props.help.aliases.forEach((alias) => {
                     bot.commands.set(alias, props);
                 });
             }
@@ -36,7 +36,7 @@ folders.forEach(async (d) => {
 });
 
 
-bot.on('ready', async() => {
+bot.on('ready', () => {
     bot.user.setActivity({
         name: config['activity']['description'],
         type: config['activity']['type'],
@@ -56,7 +56,9 @@ bot.on("message", async(message) => {
     let args = messageArray.slice(1);
     let commands = bot.commands.get(command.slice(prefix.length));
 
-    if (commands) commands.run(bot, message, args);
+    if (commands) await commands.run(bot, message, args);
 });
 
-bot.login(config['token']);
+(async() => {
+    await bot.login(config['token']);
+})();

@@ -2,11 +2,9 @@ const Discord = require('discord.js');
 
 module.exports.run = async(bot, message, args) => {
     if (args[0] === null) return message.reply("Can't find that user chief!");
-
-    let mentions = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
-
     if (!message.mentions.members.first()) return message.reply("Please @mention someone!");
 
+    let mentions = message.mentions.members.first() || message.guild.members.cache.get(args[0]);    
     let user = message.author;
     let target = mentions.user;
     let texts = [
@@ -19,7 +17,7 @@ module.exports.run = async(bot, message, args) => {
     ];
 
     let random = Math.floor((Math.random() * texts.length));
-    message.channel.send(texts[random]);
+    await message.channel.send(texts[random]);
 }
 
 module.exports.help = {
