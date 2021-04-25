@@ -1,47 +1,62 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
- 
-const prefix = '-';
- 
+const Chalk = require('chalk');
 const fs = require('fs');
- 
-client.commands = new Discord.Collection();
- 
-const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
-for(const file of commandFiles){
-    const command = require(`./commands/${file}`);
- 
-    client.commands.set(command.name, command);
-}
+const config = require('./data/config.json');
 
-client.once('ready', () => {
-    console.log('One grid online');
-    client.user.setActivity('over the One grid community', { type: 'WATCHING'}).catch(console.error);
+const start = new Date().getMilliseconds();
+const bot = new Discord.Client();
+const prefix = config['prefix'];
+
+const info = `${Chalk.blueBright("INFO")}`;
+const success = `${Chalk.greenBright("SUCCESS")}`;
+const error = `${Chalk.redBright("ERROR")}`;
+
+const folders = ["info", "fun"];
+bot.commands = new Discord.Collection();
+
+/* I did not made a automation function for this */
+folders.forEach(async (d) => {
+    fs.readdir(`./commands/${d}/`, async (err, files) => {
+        if (err) console.log(`${error} ${err.message}`);
+        console.log(`${info} Loaded ${files.length} commands (${d})`);
+        
+        files.forEach(async (f) => {
+            if (!f.endsWith(".js")) return;
+
+            let props = require(`./commands/${d}/${f}`);
+            bot.commands.set(props.help.name, props);
+
+            if (props.help.aliases) {
+                props.help.aliases.forEach(async (alias) => {
+                    bot.commands.set(alias, props);
+                });
+            }
+        });
+    });
 });
 
-client.on('message', message =>{
-    if(!message.content.startsWith(prefix) || message.author.bot) return;
- 
-const args = message.content.slice(prefix.length).split(/ +/);
-const command = args.shift().toLowerCase();
 
-    if(command === 'ping'){
-        client.commands.get('ping').execute(message, args);
-    } else if(command === 'help'){
-        client.commands.get('help').execute(message, args);
-    } else if(command === 'wipe'){
-        client.commands.get('wipe').execute(message, args);
-    } else if(command === 'kill'){
-        client.commands.get('kill').execute(message, args);
-    } else if(command === 'staff'){
-        client.commands.get('staff').execute(message, args);
-    } else if(command === 'mute'){
-        client.commands.get('mute').execute(message, args);
-    } else if(command === 'embed'){
-        client.commands.get('embed').execute(message, args);
-    } 
-  
- 
-})
+bot.on('ready', async() => {
+    bot.user.setActivity({
+        name: config['activity']['description'],
+        type: config['activity']['type'],
+    });
 
-    client.login('your token here');
+    let stop = new Date().getMilliseconds();
+    console.log(`${success} ${bot.user.username}#${bot.user.discriminator} went ready in ${stop - start}ms`);
+});
+
+bot.on("message", async(message) => {
+    if (message.author.bot) return;
+    if (message.channel.type === "dm") return;
+    if (!message.content.startsWith(prefix)) return;
+
+    let messageArray = message.content.split(" ");
+    let command = messageArray[0].toLowerCase();
+    let args = messageArray.slice(1);
+    let commands = bot.commands.get(command.slice(prefix.length));
+
+    if (commands) commands.run(bot, message, args);
+});
+
+bot.login(config['token']);

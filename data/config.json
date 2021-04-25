@@ -1,0 +1,9 @@
+{
+    "prefix": "!",
+    "token": "your_token_here",
+
+    "activity": {
+        "type": "WATCHING",
+        "description": "myself."
+    }
+}
