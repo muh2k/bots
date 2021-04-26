@@ -11,9 +11,8 @@ npm start
 ```
 
 ## Dependencies used
-[Chalk](https://www.npmjs.com/package/chalk) - Use console colors with chalk
-
-[Discord.JS](https://discord.js.org/) - Discord library to interact with bots.
+* [Chalk](https://www.npmjs.com/package/chalk) - Use console colors with chalk
+* [Discord.JS](https://discord.js.org/) - Discord library to interact with bots.
 
 
 ## Final
