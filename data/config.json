@@ -1,0 +1,9 @@
+{
+    "prefix": "!",
+    "token": "Enter ur token here",
+
+    "activity": {
+        "type": "WATCHING",
+        "description": "myself."
+    }
+}
